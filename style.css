@@ -20,7 +20,14 @@
     font-weight: bold;
     font-family: 'New Tegomin',serif;
 }
-
+#hiscoreBox{
+    position: absolute;
+    top: 20px;
+    right: 200px;
+    font-size: 39px;
+    font-weight: bold;
+    font-family: 'New Tegomin',serif;
+}
 #board{
     background: linear-gradient(rgb(170,236,170),rgb(236,236,167));
     width: 90vmin;
