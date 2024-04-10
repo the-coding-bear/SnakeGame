@@ -115,7 +115,7 @@ else{
     hiscoreval = JSON.parse(hiscore);
     hiscoreBox.innerHTML = "HiScore: " + hiscore;
 }
-// increae and decrease speed here
+// increase and decrease speed here
 const increaseSpeedButton = document.getElementById("increase-speed");
 const decreaseSpeedButton = document.getElementById("decrease-speed");
 
@@ -145,6 +145,16 @@ pauseButton.addEventListener("click", () => {
         gamePaused = false;
         pauseButton.innerText = "Pause";
         animationId = requestAnimationFrame(main); // Resume the game loop
+    }
+});
+// sound on/off control
+const toggleSoundButton = document.getElementById("toggle-sound");
+
+toggleSoundButton.addEventListener("click", () => {
+    if (musicSound.paused) {
+        musicSound.play();
+    } else {
+        musicSound.pause();
     }
 });
 

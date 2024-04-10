@@ -12,6 +12,7 @@
     justify-content: center;
     align-items: center;
 }
+
 #scoreBox{
     position: absolute;
     top: 9px;
@@ -48,8 +49,7 @@
     height: 10vmin;
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     
 }
 #pause-button{
@@ -64,6 +64,14 @@
 }
 #pause-button:hover{
     background-color: green;
+}
+#toggle-sound{
+    height: 100%;
+    margin-right: 4%;
+    width: 30%;
+    border-radius: 5%;
+    background-color: skyblue;
+    color: black;
 }
 .head{
     background: linear-gradient(red,yellow);
@@ -97,7 +105,6 @@
     color: white;
     border: none;
     border-radius: 8%;
-
 }
 #decrease-speed{
     width: 100%;
@@ -106,5 +113,4 @@
     color: white;
     border: none;
     border-radius: 8%;
-
 }
