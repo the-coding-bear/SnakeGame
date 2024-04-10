@@ -4,7 +4,7 @@ const foodSound = new Audio('food.mp3');
 const gameOverSound = new Audio('gameover.mp3');
 const moveSound = new Audio('move.mp3');
 const musicSound = new Audio('music.mp3');
-let speed = 19;
+let speed = 5;
 let score = 0;
 let lastPaintTime = 0;
 let snakeArr = [
@@ -15,13 +15,15 @@ food = {x: 6, y: 7};
 
 // Game Functions
 function main(ctime) {
-    window.requestAnimationFrame(main);
+    animationId=window.requestAnimationFrame(main);
     // console.log(ctime)
+    if(!gamePaused){
     if((ctime - lastPaintTime)/1000 < 1/speed){
         return;
     }
     lastPaintTime = ctime;
     gameEngine();
+ }
 }
 
 function isCollide(snake) {
@@ -113,6 +115,39 @@ else{
     hiscoreval = JSON.parse(hiscore);
     hiscoreBox.innerHTML = "HiScore: " + hiscore;
 }
+// increae and decrease speed here
+const increaseSpeedButton = document.getElementById("increase-speed");
+const decreaseSpeedButton = document.getElementById("decrease-speed");
+
+increaseSpeedButton.addEventListener("click", () => {
+    if (speed < 10) { // Limit maximum speed
+        speed++;
+    }
+});
+
+decreaseSpeedButton.addEventListener("click", () => {
+    if (speed > 1) { // Limit minimum speed
+        speed--;
+    }
+});
+// pause the game
+const pauseButton = document.getElementById("pause-button");
+
+let gamePaused = false;
+let animationId;
+
+pauseButton.addEventListener("click", () => {
+    if (!gamePaused) {
+        gamePaused = true;
+        pauseButton.innerText = "Resume";
+        cancelAnimationFrame(animationId); // Stop the game loop
+    } else {
+        gamePaused = false;
+        pauseButton.innerText = "Pause";
+        animationId = requestAnimationFrame(main); // Resume the game loop
+    }
+});
+
 
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e =>{
